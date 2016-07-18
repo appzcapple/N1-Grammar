@@ -20,6 +20,18 @@
 		41872A6C1D329CF500C9C901 /* AppzcViewControllerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41872A6B1D329CF500C9C901 /* AppzcViewControllerService.m */; };
 		41872A6F1D32A26D00C9C901 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41872A6E1D32A26D00C9C901 /* DBManager.m */; };
 		41872A711D32A44500C9C901 /* Grammar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 41872A701D32A44500C9C901 /* Grammar.sqlite */; };
+		41BDCC651D3A6694004B0175 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC5A1D3A6694004B0175 /* FMDatabase.m */; };
+		41BDCC661D3A6694004B0175 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC5C1D3A6694004B0175 /* FMDatabaseAdditions.m */; };
+		41BDCC671D3A6694004B0175 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC5E1D3A6694004B0175 /* FMDatabasePool.m */; };
+		41BDCC681D3A6694004B0175 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC601D3A6694004B0175 /* FMDatabaseQueue.m */; };
+		41BDCC691D3A6694004B0175 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC631D3A6694004B0175 /* FMResultSet.m */; };
+		41BDCC6A1D3A6694004B0175 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BDCC641D3A6694004B0175 /* Info.plist */; };
+		41FD0F211D3BD907009ED263 /* AppzcRoundRectButtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FD0F201D3BD907009ED263 /* AppzcRoundRectButtion.m */; };
+		41FD0F251D3BDCDA009ED263 /* Background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F231D3BDCDA009ED263 /* Background-1.png */; };
+		41FD0F261D3BDCDA009ED263 /* Background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F241D3BDCDA009ED263 /* Background-2.png */; };
+		41FD0F281D3BDECF009ED263 /* Background-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F271D3BDECF009ED263 /* Background-3.png */; };
+		41FD0F2A1D3BDF96009ED263 /* Background-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F291D3BDF96009ED263 /* Background-4.png */; };
+		41FD0F2C1D3BE17A009ED263 /* Setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F2B1D3BE17A009ED263 /* Setting.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +75,25 @@
 		41872A6D1D32A26D00C9C901 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		41872A6E1D32A26D00C9C901 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		41872A701D32A44500C9C901 /* Grammar.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Grammar.sqlite; path = ../Grammar.sqlite; sourceTree = "<group>"; };
+		41BDCC591D3A6694004B0175 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		41BDCC5A1D3A6694004B0175 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		41BDCC5B1D3A6694004B0175 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		41BDCC5C1D3A6694004B0175 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		41BDCC5D1D3A6694004B0175 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		41BDCC5E1D3A6694004B0175 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		41BDCC5F1D3A6694004B0175 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		41BDCC601D3A6694004B0175 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		41BDCC611D3A6694004B0175 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		41BDCC621D3A6694004B0175 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		41BDCC631D3A6694004B0175 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		41BDCC641D3A6694004B0175 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41FD0F1F1D3BD907009ED263 /* AppzcRoundRectButtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcRoundRectButtion.h; sourceTree = "<group>"; };
+		41FD0F201D3BD907009ED263 /* AppzcRoundRectButtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcRoundRectButtion.m; sourceTree = "<group>"; };
+		41FD0F231D3BDCDA009ED263 /* Background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1.png"; sourceTree = "<group>"; };
+		41FD0F241D3BDCDA009ED263 /* Background-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-2.png"; sourceTree = "<group>"; };
+		41FD0F271D3BDECF009ED263 /* Background-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-3.png"; sourceTree = "<group>"; };
+		41FD0F291D3BDF96009ED263 /* Background-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-4.png"; sourceTree = "<group>"; };
+		41FD0F2B1D3BE17A009ED263 /* Setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Setting.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +204,8 @@
 			children = (
 				41872A6A1D329CF500C9C901 /* AppzcViewControllerService.h */,
 				41872A6B1D329CF500C9C901 /* AppzcViewControllerService.m */,
+				41FD0F1F1D3BD907009ED263 /* AppzcRoundRectButtion.h */,
+				41FD0F201D3BD907009ED263 /* AppzcRoundRectButtion.m */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -211,6 +244,7 @@
 		41872A651D329B0F00C9C901 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				41BDCC581D3A6694004B0175 /* fmdb */,
 				41872A691D329B3E00C9C901 /* System */,
 			);
 			name = Dependencies;
@@ -219,6 +253,7 @@
 		41872A661D329B1E00C9C901 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41FD0F221D3BDCDA009ED263 /* images */,
 				41872A701D32A44500C9C901 /* Grammar.sqlite */,
 			);
 			name = Resources;
@@ -230,6 +265,39 @@
 				41872A671D329B3800C9C901 /* libsqlite3.tbd */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		41BDCC581D3A6694004B0175 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				41BDCC591D3A6694004B0175 /* FMDatabase.h */,
+				41BDCC5A1D3A6694004B0175 /* FMDatabase.m */,
+				41BDCC5B1D3A6694004B0175 /* FMDatabaseAdditions.h */,
+				41BDCC5C1D3A6694004B0175 /* FMDatabaseAdditions.m */,
+				41BDCC5D1D3A6694004B0175 /* FMDatabasePool.h */,
+				41BDCC5E1D3A6694004B0175 /* FMDatabasePool.m */,
+				41BDCC5F1D3A6694004B0175 /* FMDatabaseQueue.h */,
+				41BDCC601D3A6694004B0175 /* FMDatabaseQueue.m */,
+				41BDCC611D3A6694004B0175 /* FMDB.h */,
+				41BDCC621D3A6694004B0175 /* FMResultSet.h */,
+				41BDCC631D3A6694004B0175 /* FMResultSet.m */,
+				41BDCC641D3A6694004B0175 /* Info.plist */,
+			);
+			name = fmdb;
+			path = Dependencies/fmdb;
+			sourceTree = "<group>";
+		};
+		41FD0F221D3BDCDA009ED263 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				41FD0F2B1D3BE17A009ED263 /* Setting.png */,
+				41FD0F291D3BDF96009ED263 /* Background-4.png */,
+				41FD0F271D3BDECF009ED263 /* Background-3.png */,
+				41FD0F231D3BDCDA009ED263 /* Background-1.png */,
+				41FD0F241D3BDCDA009ED263 /* Background-2.png */,
+			);
+			name = images;
+			path = Resouces/images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,9 +403,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FD0F2A1D3BDF96009ED263 /* Background-4.png in Resources */,
+				41FD0F261D3BDCDA009ED263 /* Background-2.png in Resources */,
 				41872A3A1D329A4400C9C901 /* LaunchScreen.storyboard in Resources */,
 				41872A711D32A44500C9C901 /* Grammar.sqlite in Resources */,
 				41872A371D329A4400C9C901 /* Assets.xcassets in Resources */,
+				41FD0F281D3BDECF009ED263 /* Background-3.png in Resources */,
+				41FD0F251D3BDCDA009ED263 /* Background-1.png in Resources */,
+				41BDCC6A1D3A6694004B0175 /* Info.plist in Resources */,
+				41FD0F2C1D3BE17A009ED263 /* Setting.png in Resources */,
 				41872A321D329A4400C9C901 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,9 +440,15 @@
 				41872A351D329A4400C9C901 /* N1_Grammar.xcdatamodeld in Sources */,
 				41872A2F1D329A4400C9C901 /* ViewController.m in Sources */,
 				41872A2C1D329A4300C9C901 /* AppDelegate.m in Sources */,
+				41BDCC651D3A6694004B0175 /* FMDatabase.m in Sources */,
+				41BDCC671D3A6694004B0175 /* FMDatabasePool.m in Sources */,
+				41BDCC681D3A6694004B0175 /* FMDatabaseQueue.m in Sources */,
 				41872A6F1D32A26D00C9C901 /* DBManager.m in Sources */,
 				41872A291D329A4300C9C901 /* main.m in Sources */,
+				41BDCC691D3A6694004B0175 /* FMResultSet.m in Sources */,
 				41872A6C1D329CF500C9C901 /* AppzcViewControllerService.m in Sources */,
+				41BDCC661D3A6694004B0175 /* FMDatabaseAdditions.m in Sources */,
+				41FD0F211D3BD907009ED263 /* AppzcRoundRectButtion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +674,7 @@
 				41872A561D329A4500C9C901 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41872A571D329A4500C9C901 /* Build configuration list for PBXNativeTarget "N1-GrammarTests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +683,7 @@
 				41872A591D329A4500C9C901 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41872A5A1D329A4500C9C901 /* Build configuration list for PBXNativeTarget "N1-GrammarUITests" */ = {
 			isa = XCConfigurationList;
@@ -610,6 +692,7 @@
 				41872A5C1D329A4500C9C901 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

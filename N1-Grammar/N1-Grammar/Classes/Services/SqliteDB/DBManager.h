@@ -10,6 +10,6 @@
 
 @interface DBManager : NSObject
 
-+ (void)handleDatabaseWithSql:(NSString *)sql;
++(id)getManager ;
 
 @end
