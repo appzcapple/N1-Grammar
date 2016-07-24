@@ -6,8 +6,6 @@
 //  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface AppzcViewControllerService : NSObject
 

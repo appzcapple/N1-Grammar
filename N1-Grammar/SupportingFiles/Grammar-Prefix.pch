@@ -1,0 +1,58 @@
+//
+//  Grammar-Prefix.pch
+//  N1-Grammar
+//
+//  Created by appzcapple on 2016/07/23.
+//  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef Grammar_Prefix_pch
+#define Grammar_Prefix_pch
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+// common function
+typedef void(^TimerToken)(BOOL cancel);
+
+static TimerToken perfrom_Timer(dispatch_block_t block, CGFloat seconds){
+    if (block == nil) {
+        return nil;
+    }
+    
+    __block dispatch_block_t blockCopy = [block copy];
+    __block TimerToken tokenCopy = nil;
+    TimerToken token = ^(BOOL cancel){
+        if (cancel == NO && blockCopy != nil) {
+            dispatch_sync(dispatch_get_main_queue(), blockCopy);
+        }
+        
+        blockCopy = nil;
+        tokenCopy = nil;
+    };
+    
+    tokenCopy = [token copy];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, seconds * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        if (tokenCopy != nil) {
+            tokenCopy(NO);
+        }
+    });
+    
+    return tokenCopy;
+};
+
+static void cancel_timer(TimerToken token){
+    if (token == nil) {
+        return;
+    }
+    token(YES);
+}
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Grammar_Prefix_pch */

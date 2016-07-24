@@ -6,7 +6,6 @@
 //  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

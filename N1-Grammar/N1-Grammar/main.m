@@ -6,7 +6,6 @@
 //  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {

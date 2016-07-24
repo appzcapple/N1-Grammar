@@ -7,11 +7,10 @@
 //
 
 #import "DBManager.h"
-#import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "FMDatabase.h"
 
-#define DATABASE_FILE_NAME @"cache.sqlite"
+#define DATABASE_FILE_NAME @"Grammar.sqlite"
 #define DATABASE_KEY @"zc2016"
 
 @interface DBManager (){
@@ -34,11 +33,7 @@
     __strong static id _manager = nil;
     
     dispatch_once(&oneTime, ^{
-        [super init];
-        if (self) {
-            _manager = [[self alloc] init];
-        }
-        
+        _manager = [[self alloc] init];
     });
     
     return _manager;
@@ -48,9 +43,9 @@
     self = [super init];
     if (self) {
         NSString *libraryDirectory = [self LibraryDirectory];
-        self.cacheDirectory = [libraryDirectory stringByAppendingPathComponent:@"Database"];
+        self.cacheDirectory = [libraryDirectory stringByAppendingPathComponent:@"/Database"];
         self.databaseFilename = DATABASE_FILE_NAME;
-        if ([self createDirectory:@"Database" atFilePath:libraryDirectory]) {
+        if ([self createDirectory:@"/Database" atFilePath:libraryDirectory]) {
             NSLog(@"/Library/Database created succeed!");
         }
         if ([self copyDatabaseFileFromTempDirectyIfExists]) {
@@ -64,6 +59,8 @@
             self.database = [FMDatabase databaseWithPath:databasePath];
         }
     }
+    
+    queue = dispatch_queue_create([@"sqlite_database_queue" UTF8String], NULL);
     
     return self;
 }
@@ -109,16 +106,23 @@
 -(void)copyDatabaseIntoDocumentDirectory{
     NSString *destinationPath = [self.cacheDirectory stringByAppendingPathComponent:self.databaseFilename];
     NSLog(@"Cache database location:%@", destinationPath);
+    
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:destinationPath]) {
-        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
-        
-        NSError *error;
-        
-        [fileManager copyItemAtPath:sourcePath toPath:destinationPath error:&error];
-        if (error != nil) {
-            NSLog(@"%@",[error localizedDescription]);
+    if ([fileManager fileExistsAtPath:destinationPath]) {
+        NSError *errorDelete;
+        [fileManager removeItemAtPath:destinationPath error:&errorDelete];
+        if (errorDelete != nil) {
+            NSLog(@"%@",[errorDelete localizedDescription]);
         }
+    }
+    
+    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
+    
+    NSError *error;
+    
+    [fileManager copyItemAtPath:sourcePath toPath:destinationPath error:&error];
+    if (error != nil) {
+        NSLog(@"%@",[error localizedDescription]);
     }
 }
 
@@ -130,7 +134,7 @@
     }
     
     [self.database setKey:DATABASE_KEY];
-    queue = dispatch_queue_create([@"sqlite_database_queue" UTF8String], NULL);
+
 }
 
 -(void)resume{

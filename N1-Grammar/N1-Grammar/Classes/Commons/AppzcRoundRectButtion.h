@@ -6,8 +6,6 @@
 //  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface AppzcRoundRectButtion : UIButton
 
 @end
