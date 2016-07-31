@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		413B00571D4CD5F200559C46 /* Cache.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 413B00561D4CD5F200559C46 /* Cache.sqlite */; };
+		413B00591D4D0D2000559C46 /* background-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 413B00581D4D0D2000559C46 /* background-5.png */; };
 		416B5FAE1D435C3800441B2D /* AppzcGrammarTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B5FAD1D435C3800441B2D /* AppzcGrammarTypesViewController.m */; };
 		416B5FB11D435D4C00441B2D /* AppzcGrammarTpyeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B5FB01D435D4C00441B2D /* AppzcGrammarTpyeTableViewCell.m */; };
 		416B5FBB1D4361CB00441B2D /* OMDeferred.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B5FB51D4361CB00441B2D /* OMDeferred.m */; };
@@ -44,6 +46,8 @@
 		41BDCC681D3A6694004B0175 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC601D3A6694004B0175 /* FMDatabaseQueue.m */; };
 		41BDCC691D3A6694004B0175 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BDCC631D3A6694004B0175 /* FMResultSet.m */; };
 		41BDCC6A1D3A6694004B0175 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41BDCC641D3A6694004B0175 /* Info.plist */; };
+		41CEA5351D4D9C9E00C966D6 /* AppzcBookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEA52F1D4D9C9E00C966D6 /* AppzcBookmarksViewController.m */; };
+		41CEA5361D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CEA5301D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.m */; };
 		41FD0F211D3BD907009ED263 /* AppzcRoundRectButtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FD0F201D3BD907009ED263 /* AppzcRoundRectButtion.m */; };
 		41FD0F251D3BDCDA009ED263 /* Background-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F231D3BDCDA009ED263 /* Background-1.png */; };
 		41FD0F261D3BDCDA009ED263 /* Background-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 41FD0F241D3BDCDA009ED263 /* Background-2.png */; };
@@ -70,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		413B00561D4CD5F200559C46 /* Cache.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Cache.sqlite; path = Resouces/Cache.sqlite; sourceTree = "<group>"; };
+		413B00581D4D0D2000559C46 /* background-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-5.png"; sourceTree = "<group>"; };
 		416B5FA71D434E6B00441B2D /* Grammar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Grammar-Prefix.pch"; sourceTree = "<group>"; };
 		416B5FAC1D435C3800441B2D /* AppzcGrammarTypesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcGrammarTypesViewController.h; sourceTree = "<group>"; };
 		416B5FAD1D435C3800441B2D /* AppzcGrammarTypesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarTypesViewController.m; sourceTree = "<group>"; };
@@ -125,7 +131,7 @@
 		41872A6B1D329CF500C9C901 /* AppzcViewControllerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcViewControllerService.m; sourceTree = "<group>"; };
 		41872A6D1D32A26D00C9C901 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		41872A6E1D32A26D00C9C901 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		41872A701D32A44500C9C901 /* Grammar.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Grammar.sqlite; path = ../Grammar.sqlite; sourceTree = "<group>"; };
+		41872A701D32A44500C9C901 /* Grammar.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = Grammar.sqlite; path = Resouces/Grammar.sqlite; sourceTree = "<group>"; };
 		41A5D8E01D446338009937C0 /* AppzcGrammarsListViewControllerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsListViewControllerService.m; sourceTree = "<group>"; };
 		41A5D8E11D446338009937C0 /* AppzcGrammarsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsListViewController.m; sourceTree = "<group>"; };
 		41A5D8E21D446338009937C0 /* AppzcGrammarsListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcGrammarsListTableViewCell.h; sourceTree = "<group>"; };
@@ -144,6 +150,10 @@
 		41BDCC621D3A6694004B0175 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		41BDCC631D3A6694004B0175 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		41BDCC641D3A6694004B0175 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41CEA52F1D4D9C9E00C966D6 /* AppzcBookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcBookmarksViewController.m; sourceTree = "<group>"; };
+		41CEA5301D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcBookmarksViewControllerService.m; sourceTree = "<group>"; };
+		41CEA5311D4D9C9E00C966D6 /* AppzcBookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcBookmarksViewController.h; sourceTree = "<group>"; };
+		41CEA5341D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcBookmarksViewControllerService.h; sourceTree = "<group>"; };
 		41FD0F1F1D3BD907009ED263 /* AppzcRoundRectButtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcRoundRectButtion.h; sourceTree = "<group>"; };
 		41FD0F201D3BD907009ED263 /* AppzcRoundRectButtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcRoundRectButtion.m; sourceTree = "<group>"; };
 		41FD0F231D3BDCDA009ED263 /* Background-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-1.png"; sourceTree = "<group>"; };
@@ -385,6 +395,7 @@
 		41872A631D329AF200C9C901 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				41CEA52E1D4D99E800C966D6 /* GrammarBookmack */,
 				416B5FA81D435BEE00441B2D /* GrammarDetail */,
 				416B5FA91D435BEE00441B2D /* Grammars */,
 				416B5FAA1D435BEE00441B2D /* GrammarUnits */,
@@ -408,6 +419,7 @@
 			children = (
 				41FD0F221D3BDCDA009ED263 /* images */,
 				41872A701D32A44500C9C901 /* Grammar.sqlite */,
+				413B00561D4CD5F200559C46 /* Cache.sqlite */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -440,9 +452,21 @@
 			path = Dependencies/fmdb;
 			sourceTree = "<group>";
 		};
+		41CEA52E1D4D99E800C966D6 /* GrammarBookmack */ = {
+			isa = PBXGroup;
+			children = (
+				41CEA5311D4D9C9E00C966D6 /* AppzcBookmarksViewController.h */,
+				41CEA52F1D4D9C9E00C966D6 /* AppzcBookmarksViewController.m */,
+				41CEA5341D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.h */,
+				41CEA5301D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.m */,
+			);
+			path = GrammarBookmack;
+			sourceTree = "<group>";
+		};
 		41FD0F221D3BDCDA009ED263 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				413B00581D4D0D2000559C46 /* background-5.png */,
 				41FD0F2B1D3BE17A009ED263 /* Setting.png */,
 				41FD0F291D3BDF96009ED263 /* Background-4.png */,
 				41FD0F271D3BDECF009ED263 /* Background-3.png */,
@@ -557,6 +581,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				41FD0F2A1D3BDF96009ED263 /* Background-4.png in Resources */,
+				413B00591D4D0D2000559C46 /* background-5.png in Resources */,
+				413B00571D4CD5F200559C46 /* Cache.sqlite in Resources */,
 				41FD0F261D3BDCDA009ED263 /* Background-2.png in Resources */,
 				41872A3A1D329A4400C9C901 /* LaunchScreen.storyboard in Resources */,
 				41872A711D32A44500C9C901 /* Grammar.sqlite in Resources */,
@@ -613,6 +639,8 @@
 				41BDCC661D3A6694004B0175 /* FMDatabaseAdditions.m in Sources */,
 				418419851D4519D1007D6E7B /* AppzcJpGrammarSentence.m in Sources */,
 				416B5FBB1D4361CB00441B2D /* OMDeferred.m in Sources */,
+				41CEA5361D4D9C9E00C966D6 /* AppzcBookmarksViewControllerService.m in Sources */,
+				41CEA5351D4D9C9E00C966D6 /* AppzcBookmarksViewController.m in Sources */,
 				41FD0F211D3BD907009ED263 /* AppzcRoundRectButtion.m in Sources */,
 				416B5FCB1D43DD8E00441B2D /* AppzcGrammarUnitsViewController.m in Sources */,
 				416B5FBD1D4361CB00441B2D /* OMPromise.m in Sources */,

@@ -19,8 +19,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     DBManager *dbManager = [DBManager getManager];
-    [dbManager start];
-    [dbManager stop];
+    [dbManager start:@"Grammar.sqlite"];
+    [dbManager stop:@"Grammar.sqlite"];
+    [dbManager start:@"Cache.sqlite"];
+    [dbManager stop:@"Cache.sqlite"];
     
     NSString *currecntVersion = [NSString stringWithFormat:@"Version %@",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     NSLog(@"app version is : %@",currecntVersion);

@@ -12,6 +12,7 @@
 
 #import "AppzcJpGrammar.h"
 #import "AppzcJpGrammarSentence.h"
+#import "DBManager.h"
 
 @interface AppzcGrammarInfoViewController ()
 
@@ -31,6 +32,9 @@
 @synthesize grammarType;
 @synthesize grammarUnit;
 @synthesize delegate;
+@synthesize lastOneBtn;
+@synthesize nextOneBtn;
+@synthesize bookmarkBtn;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
@@ -51,6 +55,17 @@
         [self.grammarNamelbl setText:self.grammarSource.grammarStr];
         [self.translatelbl setText:self.grammarSource.translate];
         [self.usagelbl setText:grammarSource.usage];
+    }
+    
+    if (self.grammarIndex == 0) {
+        [self.lastOneBtn setHidden:YES];
+    }
+    if (self.maxIndex == self.grammarIndex){
+        [self.nextOneBtn setHidden:YES];
+    }
+    
+    if ([self.service isMarked:self.grammarSource.identity]) {
+        [self.bookmarkBtn setTitle:@"取消标记⭐️" forState:UIControlStateNormal];
     }
     
 }
@@ -122,6 +137,16 @@
 
 -(IBAction)touchUpInsideCloseBtn:(id)sender{
     [self.delegate closeGrammar:self];
+}
+
+- (IBAction)touchUpInsideBookMark:(id)sender {
+    if ([self.service isMarked:self.grammarSource.identity]) {
+        [self.service removeFromMark:self.grammarSource.identity];
+        [self.bookmarkBtn setTitle:@"标记生词" forState:UIControlStateNormal];
+    } else {
+        [self.service addToMark:self.grammarSource.identity];
+        [self.bookmarkBtn setTitle:@"取消标记⭐️" forState:UIControlStateNormal];
+    }
 }
 
 -(void)dismissWithAnimation{

@@ -10,7 +10,8 @@
 #import <sqlite3.h>
 #import "FMDatabase.h"
 
-#define DATABASE_FILE_NAME @"Grammar.sqlite"
+#define R_DATABASE_NAME @"Grammar.sqlite"
+#define R_W_DATABASE_NAME @"Cache.sqlite"
 #define DATABASE_KEY @"zc2016"
 
 @interface DBManager (){
@@ -18,9 +19,11 @@
 }
 
 @property (strong,nonatomic) NSString *cacheDirectory;
-@property (strong,nonatomic) NSString *databaseFilename;
+@property (strong,nonatomic) NSString *rDatabaseFilename;
+@property (strong,nonatomic) NSString *rwDatabaseFilename;
 
-@property (strong, nonatomic) FMDatabase *database;
+@property (strong, nonatomic) FMDatabase *rdatabase;
+@property (strong, nonatomic) FMDatabase *rwDatabase;
 
 @end
 
@@ -44,7 +47,8 @@
     if (self) {
         NSString *libraryDirectory = [self LibraryDirectory];
         self.cacheDirectory = [libraryDirectory stringByAppendingPathComponent:@"/Database"];
-        self.databaseFilename = DATABASE_FILE_NAME;
+        self.rDatabaseFilename = R_DATABASE_NAME;
+        self.rwDatabaseFilename = R_W_DATABASE_NAME;
         if ([self createDirectory:@"/Database" atFilePath:libraryDirectory]) {
             NSLog(@"/Library/Database created succeed!");
         }
@@ -53,10 +57,14 @@
         }
         [self copyDatabaseIntoDocumentDirectory];
         
-        NSString *databasePath = [self.cacheDirectory stringByAppendingPathComponent:self.databaseFilename];
+        NSString *rDatabasePath = [self.cacheDirectory stringByAppendingPathComponent:self.rDatabaseFilename];
+        NSString *rwDatabasePath = [self.cacheDirectory stringByAppendingPathComponent:self.rwDatabaseFilename];
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        if ([fileManager fileExistsAtPath:databasePath]) {
-            self.database = [FMDatabase databaseWithPath:databasePath];
+        if ([fileManager fileExistsAtPath:rDatabasePath]) {
+            self.rdatabase = [FMDatabase databaseWithPath:rDatabasePath];
+        }
+        if ([fileManager fileExistsAtPath:rwDatabasePath]) {
+            self.rwDatabase = [FMDatabase databaseWithPath:rwDatabasePath];
         }
     }
     
@@ -89,8 +97,8 @@
 }
 
 -(BOOL)copyDatabaseFileFromTempDirectyIfExists {
-    NSString *sourcePath = [NSTemporaryDirectory() stringByAppendingPathComponent:self.databaseFilename];
-    NSString *destinationPath = [self.cacheDirectory stringByAppendingPathComponent:self.databaseFilename];
+    NSString *sourcePath = [NSTemporaryDirectory() stringByAppendingPathComponent:self.rDatabaseFilename];
+    NSString *destinationPath = [self.cacheDirectory stringByAppendingPathComponent:self.rDatabaseFilename];
     NSFileManager *fileManger = [NSFileManager defaultManager];
     if ([fileManger fileExistsAtPath:sourcePath]) {
         NSError *error;
@@ -104,62 +112,92 @@
 }
 
 -(void)copyDatabaseIntoDocumentDirectory{
-    NSString *destinationPath = [self.cacheDirectory stringByAppendingPathComponent:self.databaseFilename];
-    NSLog(@"Cache database location:%@", destinationPath);
+    NSString *destinationPathRDB = [self.cacheDirectory stringByAppendingPathComponent:self.rDatabaseFilename];
+    NSLog(@"Cache database location:%@", destinationPathRDB);
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager fileExistsAtPath:destinationPath]) {
+    if ([fileManager fileExistsAtPath:destinationPathRDB]) {
         NSError *errorDelete;
-        [fileManager removeItemAtPath:destinationPath error:&errorDelete];
+        [fileManager removeItemAtPath:destinationPathRDB error:&errorDelete];
         if (errorDelete != nil) {
             NSLog(@"%@",[errorDelete localizedDescription]);
         }
     }
     
-    NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseFilename];
+    NSString *rSourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.rDatabaseFilename];
     
     NSError *error;
     
-    [fileManager copyItemAtPath:sourcePath toPath:destinationPath error:&error];
+    [fileManager copyItemAtPath:rSourcePath toPath:destinationPathRDB error:&error];
     if (error != nil) {
         NSLog(@"%@",[error localizedDescription]);
     }
+    
+    NSString *destinationPathRWDB = [self.cacheDirectory stringByAppendingPathComponent:self.rwDatabaseFilename];
+    if (![fileManager fileExistsAtPath:destinationPathRWDB]) {
+        NSString *rwSourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.rwDatabaseFilename];
+        
+        NSError *error2;
+        
+        [fileManager copyItemAtPath:rwSourcePath toPath:destinationPathRWDB error:&error2];
+        if (error2 != nil) {
+            NSLog(@"%@",[error2 localizedDescription]);
+        }
+    }
+    
 }
 
--(void)start {
+-(void)start :(NSString *)databaseName {
     NSLog(@"start the sqlite manager");
-    if (![self.database open]) {
-        NSLog(@"failed to open the sqlite");
-        return;
+    if ([databaseName isEqualToString:self.rwDatabaseFilename]) {
+        if (![self.rwDatabase open]) {
+            NSLog(@"failed to open the sqlite");
+            return;
+        }
+    } else {
+        if (![self.rdatabase open]) {
+            NSLog(@"failed to open the sqlite");
+            return;
+        }
     }
-    
-    [self.database setKey:DATABASE_KEY];
+    [self.rdatabase setKey:DATABASE_KEY];
 
 }
 
--(void)resume{
-    NSLog(@"restart sqlite db");
-    
-    [self start];
-}
+//-(void)resume{
+//    NSLog(@"restart sqlite db");
+//    
+//    [self start];
+//}
+//
+//-(void)pause{
+//    NSLog(@"pause database");
+//    
+//    [self stop];
+//}
 
--(void)pause{
-    NSLog(@"pause database");
-    
-    [self stop];
-}
-
--(void)stop{
+-(void)stop :(NSString *)databaseName;{
     NSLog(@"stop sqlite db manager");
-    if (![self.database close]) {
-        NSLog(@"failed to close sqlite !");
+    if ([databaseName isEqualToString:self.rwDatabaseFilename]) {
+        if (![self.rwDatabase close]) {
+            NSLog(@"failed to close sqlite !");
+        }
+    } else {
+        if (![self.rdatabase close]) {
+            NSLog(@"failed to close sqlite !");
+        }
     }
 }
 
--(void)inDatabase:(void (^)(FMDatabase *db)) block{
+-(void)inDatabase:(void (^)(FMDatabase *db)) block databaseName:(NSString *)databaseName{
     dispatch_sync(queue, ^{
         
-        FMDatabase *db = self.database;
+        FMDatabase *db = nil;
+        if ([databaseName isEqualToString:self.rwDatabaseFilename]) {
+            db = self.rwDatabase;
+        }else {
+            db = self.rdatabase;
+        }
         
         block(db);
         
@@ -175,17 +213,17 @@
         BOOL shouldRollback = NO;
         
         if (useDeferred) {
-            [self.database beginDeferredTransaction];
+            [self.rwDatabase beginDeferredTransaction];
         } else {
-            [self.database beginTransaction];
+            [self.rwDatabase beginTransaction];
         }
         
-        block(self.database, &shouldRollback);
+        block(self.rwDatabase, &shouldRollback);
         
         if (shouldRollback) {
-            [self.database rollback];
+            [self.rwDatabase rollback];
         } else {
-            [self.database commit];
+            [self.rwDatabase commit];
         }
         
     });
@@ -199,10 +237,18 @@
     [self beginTransaction:NO withBlock:block];
 }
 
--(NSMutableArray *)executeQuery:(NSString *)sql{
+-(NSMutableArray *)executeQuery:(NSString *)sql databaseName:(NSString *)databaseName{
     NSMutableArray *results = [[NSMutableArray alloc] init];
     
-    FMResultSet *resultSet = [self.database executeQuery:sql];
+    FMResultSet *resultSet = nil;
+    FMDatabase *db = nil;
+    if ([databaseName isEqualToString:self.rwDatabaseFilename]) {
+        db = self.rwDatabase;
+    }else {
+        db = self.rdatabase;
+    }
+
+    resultSet = [db executeQuery:sql];
     while ([resultSet next]) {
         NSMutableDictionary *record = [[NSMutableDictionary alloc] initWithCapacity:0];
         

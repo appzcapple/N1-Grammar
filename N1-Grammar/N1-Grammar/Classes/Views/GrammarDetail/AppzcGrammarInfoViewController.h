@@ -26,10 +26,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *grammarNamelbl;
 @property (weak, nonatomic) IBOutlet UILabel *usagelbl;
 @property (weak, nonatomic) IBOutlet UILabel *translatelbl;
+@property (weak, nonatomic) IBOutlet UIButton *lastOneBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextOneBtn;
+@property (weak, nonatomic) IBOutlet UIButton *bookmarkBtn;
+
 
 @property (strong, nonatomic) AppzcJpGrammar *grammarSource;
 
 @property (nonatomic) NSInteger grammarIndex;
+@property (nonatomic) NSInteger maxIndex;
 
 @property (nonatomic, strong) NSString *grammarType;
 @property (nonatomic, strong) NSString *grammarUnit;
@@ -37,5 +42,7 @@
 @property (nonatomic, weak) id<AppzcGrammarDetailDelegate> delegate;
 
 -(void)dismissWithAnimation;
+
+-(void)dismiss;
 
 @end

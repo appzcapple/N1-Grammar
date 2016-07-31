@@ -16,7 +16,7 @@
 -(NSMutableArray *)updateSourceList:(NSString *)type unit:(NSString *)unit{
     NSMutableArray *sourceList = [NSMutableArray array];
     DBManager *dbManager = [DBManager getManager];
-    [dbManager start];
+    [dbManager start:@"Grammar.sqlite"];
     [dbManager inDatabase:^(FMDatabase *db) {
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM GRAMMARS WHERE TYPE = '%@' AND UNIT_ID = '%@'",type, unit ];
         FMResultSet *rs = [db executeQuery:sql];
@@ -25,8 +25,8 @@
             [grammar setInfoWithFMResultSet:rs];
             [sourceList addObject:grammar];
         }
-    }];
-    [dbManager stop];
+    } databaseName:@"Grammar.sqlite"];
+    [dbManager stop:@"Grammar.sqlite"];
     return sourceList;
 }
 

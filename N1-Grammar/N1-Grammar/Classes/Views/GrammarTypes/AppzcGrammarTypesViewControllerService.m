@@ -15,7 +15,7 @@
 -(NSMutableArray *)updateSourceList{
     NSMutableArray *sourceList = [NSMutableArray array];
     DBManager *dbManager = [DBManager getManager];
-    [dbManager start];
+    [dbManager start:@"Grammar.sqlite"];
     [dbManager inDatabase:^(FMDatabase *db) {
         NSString *sql = @"SELECT DISTINCT TYPE FROM GRAMMARS;";
         FMResultSet *rs = [db executeQuery:sql];
@@ -23,8 +23,8 @@
             NSString *type = [rs stringForColumn:@"TYPE"];
             [sourceList addObject:type];
         }
-    }];
-    [dbManager stop];
+    } databaseName:@"Grammar.sqlite"];
+    [dbManager stop:@"Grammar.sqlite"];
     return sourceList;
 }
 

@@ -12,6 +12,10 @@
 
 -(NSMutableArray *)updateSourceList:(NSString *)grammarId;
 
+-(BOOL)isMarked:(NSString *)gid;
 
+-(void)removeFromMark:(NSString *)gid;
+
+-(void)addToMark:(NSString *)gid;
 
 @end

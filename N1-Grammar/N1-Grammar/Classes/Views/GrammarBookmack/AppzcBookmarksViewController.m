@@ -6,15 +6,15 @@
 //  Copyright © 2016年 com.zc.EducationApps. All rights reserved.
 //
 
-#import "AppzcGrammarsListViewController.h"
-#import "AppzcGrammarsListViewControllerService.h"
+#import "AppzcBookmarksViewController.h"
+#import "AppzcBookmarksViewControllerService.h"
 #import "AppzcGrammarsListTableViewCell.h"
 #import "AppzcGrammarInfoViewController.h"
 #import "AppzcJpGrammar.h"
 
-@interface AppzcGrammarsListViewController ()<AppzcGrammarDetailDelegate>
+@interface AppzcBookmarksViewController ()<AppzcGrammarDetailDelegate>
 
-@property (nonatomic,strong)AppzcGrammarsListViewControllerService *service;
+@property (nonatomic,strong)AppzcBookmarksViewControllerService *service;
 @property (nonatomic) NSMutableArray *dataSourceList;
 @property (nonatomic) NSMutableArray *searchResultList;
 @property (nonatomic) NSMutableArray *lastResult;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation AppzcGrammarsListViewController
+@implementation AppzcBookmarksViewController
 
 @synthesize grammarsTableView;
 @synthesize grammarsSearchbar;
@@ -32,7 +32,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.service = [[AppzcGrammarsListViewControllerService alloc] initWithViewController:self];
+        self.service = [[AppzcBookmarksViewControllerService alloc] initWithViewController:self];
     }
     return self;
 }
@@ -53,11 +53,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    if (self.grammarType && self.grammarUnit) {
-        self.dataSourceList = [self.service updateSourceList:self.grammarType unit:self.grammarUnit];
-    }else {
-        self.dataSourceList = [self.service updateSourceList:@"" unit:@""];
-    }
+    self.dataSourceList = [self.service updateSourceList];
     
     [self reloadSourceDate];
     
@@ -239,7 +235,8 @@
 -(void)closeGrammar:(UIViewController *)grammarVC{
     [((AppzcGrammarInfoViewController *)grammarVC) dismissWithAnimation];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-
+    self.dataSourceList = [self.service updateSourceList];
+    [self reloadSourceDate];
 }
 
 @end

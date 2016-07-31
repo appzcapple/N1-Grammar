@@ -12,15 +12,15 @@
 
 +(id)getManager ;
 
--(void)start;
+-(void)start :(NSString *)databaseName;
 
--(void)stop;
+-(void)stop :(NSString *)databaseName;
 
--(void)inDatabase:(void (^)(FMDatabase *db)) block;
+-(void)inDatabase:(void (^)(FMDatabase *db)) block databaseName: (NSString *) databaseName;
 
 -(void)inTransaction:(void (^)(FMDatabase *db,BOOL *rollback))block;
 
--(NSMutableArray *)executeQuery:(NSString *)sql;
+-(NSMutableArray *)executeQuery:(NSString *)sql databaseName: (NSString *) databaseName;
 
 -(void)beginTransaction:(BOOL)useDeferred withBlock:(void (^)(FMDatabase *db, BOOL *rollback))block;
 

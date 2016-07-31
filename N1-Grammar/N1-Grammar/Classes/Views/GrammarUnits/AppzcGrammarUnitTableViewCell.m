@@ -24,7 +24,7 @@
 }
 
 -(void)configCellInfo:(NSString *)type{
-    [self.typeNamelbl setText:type];
+    [self.typeNamelbl setText:[NSString stringWithFormat:@"Unit %@",type ]];
 }
 
 @end
