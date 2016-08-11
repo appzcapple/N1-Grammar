@@ -22,6 +22,7 @@
 @property (strong,nonatomic) NSString *rDatabaseFilename;
 @property (strong,nonatomic) NSString *rwDatabaseFilename;
 
+@property (strong, nonatomic) NSMutableArray *bookmarkIds;
 @property (strong, nonatomic) FMDatabase *rdatabase;
 @property (strong, nonatomic) FMDatabase *rwDatabase;
 
@@ -69,6 +70,8 @@
     }
     
     queue = dispatch_queue_create([@"sqlite_database_queue" UTF8String], NULL);
+    
+    [self initBookMarkIds];
     
     return self;
 }
@@ -145,6 +148,36 @@
         }
     }
     
+}
+
+-(void)initBookMarkIds{
+    if (!self.bookmarkIds) {
+        self.bookmarkIds = [NSMutableArray array];
+        [self start:@"Cache.sqlite"];
+        NSString *sql = [NSString stringWithFormat:@"SELECT * FROM BOOKMARK"];
+        FMResultSet *rs = [self.rwDatabase executeQuery:sql];
+        while ([rs next]) {
+            NSString *bkId = [rs stringForColumn:@"GRAMMAR_ID"];
+            [self.bookmarkIds addObject:bkId];
+        }
+        [self stop:@"Cache.sqlite"];
+    }
+}
+
+-(NSMutableArray *)getBookmarkedIds{
+    return self.bookmarkIds;
+}
+
+-(void)addMarkedId:(NSString *)gid{
+    if (self.bookmarkIds) {
+        [self.bookmarkIds addObject:gid];
+    }
+}
+
+-(void)removeMarkedId:(NSString *)gid{
+    if (self.bookmarkIds) {
+        [self.bookmarkIds removeObject:gid];
+    }
 }
 
 -(void)start :(NSString *)databaseName {
@@ -265,5 +298,7 @@
     [resultSet close];
     return results;
 }
+
+
 
 @end

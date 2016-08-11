@@ -12,6 +12,12 @@
 
 +(id)getManager ;
 
+-(NSMutableArray *)getBookmarkedIds;
+
+-(void)addMarkedId:(NSString *)gid;
+
+-(void)removeMarkedId:(NSString *)gid;
+
 -(void)start :(NSString *)databaseName;
 
 -(void)stop :(NSString *)databaseName;

@@ -12,7 +12,9 @@
 #import "AppzcGrammarInfoViewController.h"
 #import "AppzcJpGrammar.h"
 
-@interface AppzcBookmarksViewController ()<AppzcGrammarDetailDelegate>
+@interface AppzcBookmarksViewController ()<AppzcGrammarDetailDelegate>{
+    dispatch_queue_t queue;
+}
 
 @property (nonatomic,strong)AppzcBookmarksViewControllerService *service;
 @property (nonatomic) NSMutableArray *dataSourceList;
@@ -48,6 +50,8 @@
     self.lastResult = [NSMutableArray array];
     
     [self.grammarsSearchbar setDelegate:self];
+    
+    queue = dispatch_queue_create([@"goto_view" UTF8String], NULL);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -198,6 +202,7 @@
         [UIView animateWithDuration:0.3 animations:^{
             [self.navigationController setNavigationBarHidden:YES animated:YES];
             [newGrammarVC.view setFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+            [grammarVC.view setFrame:CGRectMake(screenSize.width, 0, screenSize.width, screenSize.height)];
         } completion:^(BOOL finished) {
             [((AppzcGrammarInfoViewController *)grammarVC) dismiss];
         }];
@@ -223,12 +228,17 @@
         [self addChildViewController:newGrammarVC];
         [self.view bringSubviewToFront:newGrammarVC.view];
         
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+        
         [UIView animateWithDuration:0.3 animations:^{
-            [self.navigationController setNavigationBarHidden:YES animated:YES];
             [newGrammarVC.view setFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+            [grammarVC.view setFrame:CGRectMake(-1 * screenSize.width, 0, screenSize.width, screenSize.height)];
         } completion:^(BOOL finished) {
             [((AppzcGrammarInfoViewController *)grammarVC) dismiss];
         }];
+        
+    
+        
     }
 }
 

@@ -54,7 +54,8 @@
     if (self.grammarType) {
         self.dataSourceList = [self.service updateSourceList:self.grammarType];
     } else{
-        self.dataSourceList = [self.service updateSourceList:@""];
+        self.dataSourceList = [self.service updateSourceList:@"N1"];
+        self.grammarType = @"N1";
     }
     
     [self reloadSourceDate];

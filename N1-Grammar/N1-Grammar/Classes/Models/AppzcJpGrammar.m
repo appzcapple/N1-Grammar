@@ -17,6 +17,7 @@
 @synthesize usage;
 @synthesize unit;
 @synthesize type;
+@synthesize marked;
 
 +(id)getGrammarModel{
     
@@ -34,6 +35,22 @@
     self.type = [rs stringForColumn:@"TYPE"];
     
     return self;
+}
+
+-(void)setSelfMarked:(BOOL)isMarked{
+    if (isMarked) {
+        marked = @"Y";
+    }else{
+        marked = @"N";
+    }
+}
+
+-(BOOL)isSelfMarked{
+    if ([self.marked isEqualToString:@"Y"]) {
+        return YES;
+    } else{
+        return NO;
+    }
 }
 
 @end

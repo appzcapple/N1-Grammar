@@ -37,6 +37,8 @@
 		41872A6C1D329CF500C9C901 /* AppzcViewControllerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41872A6B1D329CF500C9C901 /* AppzcViewControllerService.m */; };
 		41872A6F1D32A26D00C9C901 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41872A6E1D32A26D00C9C901 /* DBManager.m */; };
 		41872A711D32A44500C9C901 /* Grammar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 41872A701D32A44500C9C901 /* Grammar.sqlite */; };
+		4188A48D1D5CC74800838CE4 /* AppzcGrammarsAllListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4188A48A1D5CC74800838CE4 /* AppzcGrammarsAllListViewController.m */; };
+		4188A48E1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4188A48C1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.m */; };
 		41A5D8E61D446338009937C0 /* AppzcGrammarsListViewControllerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A5D8E01D446338009937C0 /* AppzcGrammarsListViewControllerService.m */; };
 		41A5D8E71D446338009937C0 /* AppzcGrammarsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A5D8E11D446338009937C0 /* AppzcGrammarsListViewController.m */; };
 		41A5D8E81D446338009937C0 /* AppzcGrammarsListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A5D8E51D446338009937C0 /* AppzcGrammarsListTableViewCell.m */; };
@@ -132,6 +134,10 @@
 		41872A6D1D32A26D00C9C901 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		41872A6E1D32A26D00C9C901 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		41872A701D32A44500C9C901 /* Grammar.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = Grammar.sqlite; path = Resouces/Grammar.sqlite; sourceTree = "<group>"; };
+		4188A4891D5CC74800838CE4 /* AppzcGrammarsAllListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcGrammarsAllListViewController.h; sourceTree = "<group>"; };
+		4188A48A1D5CC74800838CE4 /* AppzcGrammarsAllListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsAllListViewController.m; sourceTree = "<group>"; };
+		4188A48B1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcGrammarsAllListViewControllerService.h; sourceTree = "<group>"; };
+		4188A48C1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsAllListViewControllerService.m; sourceTree = "<group>"; };
 		41A5D8E01D446338009937C0 /* AppzcGrammarsListViewControllerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsListViewControllerService.m; sourceTree = "<group>"; };
 		41A5D8E11D446338009937C0 /* AppzcGrammarsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppzcGrammarsListViewController.m; sourceTree = "<group>"; };
 		41A5D8E21D446338009937C0 /* AppzcGrammarsListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppzcGrammarsListTableViewCell.h; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 		41872A631D329AF200C9C901 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4188A4881D5CC74800838CE4 /* GrammarsAll */,
 				41CEA52E1D4D99E800C966D6 /* GrammarBookmack */,
 				416B5FA81D435BEE00441B2D /* GrammarDetail */,
 				416B5FA91D435BEE00441B2D /* Grammars */,
@@ -430,6 +437,17 @@
 				41872A671D329B3800C9C901 /* libsqlite3.tbd */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		4188A4881D5CC74800838CE4 /* GrammarsAll */ = {
+			isa = PBXGroup;
+			children = (
+				4188A4891D5CC74800838CE4 /* AppzcGrammarsAllListViewController.h */,
+				4188A48A1D5CC74800838CE4 /* AppzcGrammarsAllListViewController.m */,
+				4188A48B1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.h */,
+				4188A48C1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.m */,
+			);
+			path = GrammarsAll;
 			sourceTree = "<group>";
 		};
 		41BDCC581D3A6694004B0175 /* fmdb */ = {
@@ -636,6 +654,7 @@
 				416B5FB11D435D4C00441B2D /* AppzcGrammarTpyeTableViewCell.m in Sources */,
 				41872A6C1D329CF500C9C901 /* AppzcViewControllerService.m in Sources */,
 				416B5FCC1D43DD8E00441B2D /* AppzcGrammarUnitTableViewCell.m in Sources */,
+				4188A48D1D5CC74800838CE4 /* AppzcGrammarsAllListViewController.m in Sources */,
 				41BDCC661D3A6694004B0175 /* FMDatabaseAdditions.m in Sources */,
 				418419851D4519D1007D6E7B /* AppzcJpGrammarSentence.m in Sources */,
 				416B5FBB1D4361CB00441B2D /* OMDeferred.m in Sources */,
@@ -644,6 +663,7 @@
 				41FD0F211D3BD907009ED263 /* AppzcRoundRectButtion.m in Sources */,
 				416B5FCB1D43DD8E00441B2D /* AppzcGrammarUnitsViewController.m in Sources */,
 				416B5FBD1D4361CB00441B2D /* OMPromise.m in Sources */,
+				4188A48E1D5CC74800838CE4 /* AppzcGrammarsAllListViewControllerService.m in Sources */,
 				41A5D8E71D446338009937C0 /* AppzcGrammarsListViewController.m in Sources */,
 				416B5FC41D43638500441B2D /* AppzcGrammarTypesViewControllerService.m in Sources */,
 				416B5FCD1D43DD8E00441B2D /* AppzcGrammarUnitsViewControllerService.m in Sources */,

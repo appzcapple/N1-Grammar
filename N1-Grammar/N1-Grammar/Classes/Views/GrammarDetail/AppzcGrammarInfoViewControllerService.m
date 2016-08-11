@@ -32,16 +32,8 @@
 
 -(BOOL)isMarked:(NSString *)gid{
     DBManager *dbManager = [DBManager getManager];
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM BOOKMARK WHERE GRAMMAR_ID = '%@'",gid];
-    __block BOOL inbookmark = NO;
-    [dbManager start:@"Cache.sqlite"];
-    [dbManager inDatabase:^(FMDatabase *db) {
-        FMResultSet *rs = [db executeQuery:sql];
-        while ([rs next]) {
-            inbookmark = YES;
-        }
-    } databaseName:@"Cache.sqlite"];
-    [dbManager stop:@"Cache.sqlite"];
+    NSMutableArray *bookMarkIds = [dbManager getBookmarkedIds];
+    BOOL inbookmark = [bookMarkIds containsObject:gid];
     return inbookmark;
 }
 
@@ -53,6 +45,7 @@
         [db executeUpdate:sql];
     }];
     [dbManager stop:@"Cache.sqlite"];
+    [dbManager addMarkedId:gid];
 }
 
 -(void)removeFromMark:(NSString *)gid{
@@ -63,6 +56,7 @@
         [db executeUpdate:sql];
     }];
     [dbManager stop:@"Cache.sqlite"];
+    [dbManager removeMarkedId:gid];
 }
 
 @end

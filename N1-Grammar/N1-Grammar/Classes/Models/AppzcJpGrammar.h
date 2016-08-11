@@ -19,8 +19,13 @@
 @property (strong,nonatomic) NSString *usage;
 @property (strong,nonatomic) NSString *unit;
 @property (strong,nonatomic) NSString *type;
+@property (strong,nonatomic) NSString *marked;
 
 
 -(AppzcJpGrammar *)setInfoWithFMResultSet:(FMResultSet *)rs;
+
+-(void)setSelfMarked:(BOOL)isMarked;
+
+-(BOOL)isSelfMarked;
 
 @end
